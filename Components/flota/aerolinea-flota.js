@@ -1,4 +1,4 @@
-import { getDataAll,searchDataById,opc } from '../../Apis/customer-api.js';
+import { getDataAll,searchDataById,opc } from '../../Apis/flota-api.js';
 
 export class AerolineaFlota extends HTMLElement{
     idUsr=0;
@@ -15,13 +15,11 @@ export class AerolineaFlota extends HTMLElement{
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nro Documento</th>    
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Email</th>
-                        <th>Telefono</th>
-                        <th>Ciudad Origen</th>
-                        <th>Pais Origen</th>
+                        <th>numero de aeronave</th>    
+                        <th>Cantidad de pasajeros</th>
+                        <th>Fecha de compra</th>
+                        <th>Valor compra</th>
+                        <th>numero de matricula</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -38,7 +36,7 @@ export class AerolineaFlota extends HTMLElement{
                                 </div>
                                 <div class="modal-body">
                                     <div class="card">
-                                        <h5 class="card-header">Registro de clientes</h5>
+                                        <h5 class="card-header">Registro de Flota</h5>
                                         <div class="card-body">
                                             <div class="container">
                                                 <div class="row g-3">
@@ -46,37 +44,26 @@ export class AerolineaFlota extends HTMLElement{
                                                         <form id = "frmData">
                                                             <div class="row g-3">
                                                                 <div class="col-3">
-                                                                    <label for="id" class="form-label">Fecha registro</label>
-                                                                    <input type="date" class="form-control" id="id" name="createdAt">                  
+                                                                    <label for="nroave" class="form-label">numero de aeronave</label>
+                                                                    <input type="text" class="form-control" id="nroave" name="nroave">                  
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <label for="numeroIdentificacion" class="form-label">Documento del Cliente</label>
-                                                                    <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion">
+                                                                    <label for="cantidadPasajeros" class="form-label">Cantidad de pasajeros</label>
+                                                                    <input type="number" class="form-control" id="cantidadPasajeros" name="cantidadPasajeros">
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <label for="nombres" class="form-label">Nombres</label>
-                                                                    <input type="text" class="form-control" id="nombres" name="nombres">                  
+                                                                    <label for="fechaCompra" class="form-label">Fecha de compra</label>
+                                                                    <input type="date" class="form-control" id="fechaCompra" name="fechaCompra">                  
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <label for="apellidos" class="form-label">Apellidos</label>
-                                                                    <input type="text" class="form-control" id="apellidos" name="apellidos">                  
+                                                                    <label for="valorCompra" class="form-label">Valor compra</label>
+                                                                    <input type="text" class="form-control" id="valorCompra" name="valorCompra">        
                                                                 </div>
                                                             </div>
                                                             <div class="row g-3">
                                                                 <div class="col-4">
-                                                                    <label for="correo" class="form-label">correo cliente</label>
-                                                                    <input type="correo" class="form-control" id="correo" name="correo">
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <label for="telefono" class="form-label">Nro Movil</label>
-                                                                    <input type="text" class="form-control" id="telefono" name="telefono">                  
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                                                                    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">                  
-                                                                </div>
-                                                                <div class="container mt-4 text-center" >
-                                                                    <input type="submit" data-accion="PUT" class="btn btn-warning" value="Editar">
+                                                                    <label for="nroMatricula" class="form-label">numero de matricula</label>
+                                                                    <input type="text" class="form-control" id="nroMatricula" name="nroMatricula">
                                                                 </div>
                                                             </div>
                                                         </form>                         
@@ -126,32 +113,32 @@ export class AerolineaFlota extends HTMLElement{
                 this.renderClientes(result);
             })
     }
-    renderClientes = (clientes)=>{
-        let clientesHTML = '';
-        for(let cliente of clientes){
-            clientesHTML += this.crearListaClientesHTML(cliente);
+    renderClientes = (flotas)=>{
+        let flotasHTML = '';
+        for(let flota of flotas){
+            flotasHTML += this.crearListaClientesHTML(flota);
         }
-        document.getElementById('lista-clientes').innerHTML = clientesHTML;
+        document.getElementById('lista-clientes').innerHTML = flotasHTML;
         this.callModal();
         this.putData();
         this.delete();
     }
-    crearListaClientesHTML = (clientes)=>{
+    crearListaClientesHTML = (flotas)=>{
         let listaHTML = /* html */ `
         <tr>
-            <td>${clientes.id}</td>
-            <td>${clientes.numeroIdentificacion}</td>
-            <td>${clientes.nombres}</td>
-            <td>${clientes.apellidos}</td>
-            <td>${clientes.correo}</td>
-            <td>${clientes.telefono}</td>
-            <td>${clientes.CiudadOrigen}</td>
-            <td>${clientes.PaisOrigen}</td>
+            <td>${flotas.id}</td>
+            <td>${flotas.numeroIdentificacion}</td>
+            <td>${flotas.nombres}</td>
+            <td>${flotas.apellidos}</td>
+            <td>${flotas.correo}</td>
+            <td>${flotas.telefono}</td>
+            <td>${flotas.CiudadOrigen}</td>
+            <td>${flotas.PaisOrigen}</td>
             <td>
-                    <a class="btn btn-success " data-bs-toggle="modal" data-bs-target="#putCliente" id="putData" data-idcli='${clientes.id}'><i class='bx bx-edit-alt icono' data-idcli='${clientes.id}'></i></a>
+                    <a class="btn btn-success " data-bs-toggle="modal" data-bs-target="#putCliente" id="putData" data-idcli='${flotas.id}'><i class='bx bx-edit-alt icono' data-idcli='${flotas.id}'></i></a>
                     <!-- Button trigger modal -->
                     <input type="button" value="detalles" class="btn btn-secondary"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <a id="delete" type="button" data-borrar="DELETE"class="btn btn-danger" data-idclidel='${clientes.id}'><i class='bx bx-message-alt-x icono'></i></a>
+                    <a id="delete" type="button" data-borrar="DELETE"class="btn btn-danger" data-idclidel='${flotas.id}'><i class='bx bx-message-alt-x icono'></i></a>
             </td>
             </tr>
         `;
