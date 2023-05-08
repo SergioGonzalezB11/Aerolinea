@@ -1,0 +1,160 @@
+{
+  "clientes": [
+    {
+      "nombres": "nombres 1",
+      "apellidos": "apellidos 1",
+      "fechaNacimiento": "2023-05-04",
+      "telefono": "54966",
+      "CiudadOrigen": "CiudadOrigen 1",
+      "PaisOrigen": "PaisOrigen 1",
+      "correo": "dsohgufeas@gmai.com",
+      "numeroIdentificacion": "74846",
+      "id": "1"
+    },
+    {
+      "nombres": "nombres 2",
+      "apellidos": "apellidos 2",
+      "fechaNacimiento": 1682548079,
+      "telefono": 46489749,
+      "CiudadOrigen": "CiudadOrigen 2",
+      "PaisOrigen": "PaisOrigen 2",
+      "correo": "correo 2",
+      "numeroIdentificacion": 71,
+      "id": "2"
+    },
+    {
+      "nombres": "nombres 3",
+      "apellidos": "apellidos 3",
+      "fechaNacimiento": 1683538019,
+      "telefono": 46489749,
+      "CiudadOrigen": "CiudadOrigen 3",
+      "PaisOrigen": "PaisOrigen 3",
+      "correo": "correo 3",
+      "numeroIdentificacion": 75,
+      "id": "3"
+    },
+    {
+      "nombres": "nombres 4",
+      "apellidos": "apellidos 4",
+      "fechaNacimiento": 1683547959,
+      "telefono": 46489749,
+      "CiudadOrigen": "CiudadOrigen 4",
+      "PaisOrigen": "PaisOrigen 4",
+      "correo": "correo 4",
+      "numeroIdentificacion": 10,
+      "id": "4"
+    },
+    {
+      "nombres": "nombres 5",
+      "apellidos": "apellidos 5",
+      "fechaNacimiento": 1683547899,
+      "telefono": 46489749,
+      "CiudadOrigen": "CiudadOrigen 5",
+      "PaisOrigen": "PaisOrigen 5",
+      "correo": "correo 5",
+      "numeroIdentificacion": 95,
+      "id": "5"
+    },
+    {
+      "nombres": "sergio",
+      "apellidos": "gjgduifvfgli",
+      "fechaNacimiento": "2023-05-04", 
+      "telefono": "5488189",
+      "CiudadOrigen": "fgiurae",
+      "PaisOrigen": "fveuirg7gwtre",
+      "correo": "jgiehrsigts@gmail.com",
+      "numeroIdentificacion" : "154656",
+      "id": "6"
+    }
+  ],
+  "flota": [
+    {
+      "numeroAeronave": 90,
+      "pasajeros": 17,
+      "fechaCompra": 1683548540,
+      "valorCompra": 97,
+      "numeroMatricula": "numeroMatricula 1",
+      "id": "1"
+    },
+    {
+      "numeroAeronave": 40,
+      "pasajeros": 20,
+      "fechaCompra": 1683548480,
+      "telefono": 46489749,
+      "valorCompra": 10,
+      "numeroMatricula": "numeroMatricula 2",
+      "id": "2"
+    },
+    {
+      "numeroAeronave": 25,
+      "pasajeros": 78,
+      "fechaCompra": 1683548420,
+      "valorCompra": 42,
+      "numeroMatricula": "numeroMatricula 3",
+      "id": "3"
+    },
+    {
+      "numeroAeronave": 31,
+      "pasajeros": 24,
+      "fechaCompra": 1683548360,
+      "valorCompra": 79,
+      "numeroMatricula": "numeroMatricula ",
+      "id": ""
+    },
+    {
+      "numeroAeronave": 12,
+      "pasajeros": 100,
+      "fechaCompra": 1683548300,
+      "valorCompra": 60,
+      "numeroMatricula": "numeroMatricula 5",
+      "id": "5"
+    }
+  ],
+  "personal": [
+    {
+      "numeroDocumento": 95,
+      "nombres": "nombres 1",
+      "apellidos": "apellidos 1",
+      "email": "email 1",
+      "numeroCelular": 64,
+      "profesion": "profesion 1",
+      "id": "1"
+    },
+    {
+      "numeroDocumento": 25,
+      "nombres": "nombres 2",
+      "apellidos": "apellidos 2",
+      "email": "email 2",
+      "numeroCelular": 42,
+      "profesion": "profesion 2",
+      "id": "2"
+    },
+    {
+      "numeroDocumento": 26,
+      "nombres": "nombres 3",
+      "apellidos": "apellidos 3",
+      "email": "email 3",
+      "numeroCelular": 96,
+      "profesion": "profesion 3",
+      "id": "3"
+    },
+    {
+      "numeroDocumento": 23,
+      "nombres": "nombres 4",
+      "apellidos": "apellidos 4",
+      "email": "email 4",
+      "numeroCelular": 83,
+      "profesion": "profesion 4",
+      "id": "4"
+    },
+    {
+      "numeroDocumento": 52,
+      "nombres": "nombres 5",
+      "apellidos": "apellidos 5",
+      "email": "email 5",
+      "numeroCelular": 53,
+      "profesion": "profesion 5",
+      "id": "5"
+    }
+  ]
+}
