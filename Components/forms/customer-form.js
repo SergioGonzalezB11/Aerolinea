@@ -18,11 +18,11 @@ export class CustomerForm extends HTMLElement{
                                 <div class="row g-3">
                                     <div class="col-3">
                                         <label for="fechaRegistro" class="form-label">Fecha registro</label>
-                                        <input type="text" class="form-control" id="fechaRegistro" name="fechaRegistro">                  
+                                        <input type="date" class="form-control" id="fechaRegistro" name="fechaRegistro">                  
                                     </div>
                                     <div class="col-3">
                                         <label for="numeroIdentificacion" class="form-label">Documento del Cliente</label>
-                                        <input type="text" class="form-control" id="numeroIdentificacion" name="cc">
+                                        <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion">
                                     </div>
                                     <div class="col-3">
                                         <label for="nombres" clas   s="form-label">Nombres</label>
@@ -36,7 +36,7 @@ export class CustomerForm extends HTMLElement{
                                 <div class="row g-3">
                                     <div class="col-4">
                                         <label for="correo" class="form-label">Email cliente</label>
-                                        <input type="email" class="form-control" id="correo" name="email">
+                                        <input type="email" class="form-control" id="correo" name="correo">
                                     </div>
                                     <div class="col-4">
                                         <label for="telefono" class="form-label">telefono</label>

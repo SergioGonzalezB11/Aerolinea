@@ -1,4 +1,4 @@
-import { getDataAll,searchDataById,opc } from '../../Apis/customer-api.js';
+import { deleteData,getDataAll,searchDataById,opc } from '../../Apis/customer-api.js';
 
 export class CustomerLista extends HTMLElement{
     idUsr=0;
@@ -15,6 +15,7 @@ export class CustomerLista extends HTMLElement{
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Fecha de registro</th>
                         <th>Nro Documento</th>    
                         <th>Nombres</th>
                         <th>Apellidos</th>
@@ -22,6 +23,7 @@ export class CustomerLista extends HTMLElement{
                         <th>Telefono</th>
                         <th>Ciudad Origen</th>
                         <th>Pais Origen</th>
+                        <th>fechaNacimiento</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -47,7 +49,7 @@ export class CustomerLista extends HTMLElement{
                                                             <div class="row g-3">
                                                                 <div class="col-3">
                                                                     <label for="id" class="form-label">Fecha registro</label>
-                                                                    <input type="date" class="form-control" id="id" name="createdAt">                  
+                                                                    <input type="date" class="form-control" id="fechaRegistro" name="fechaRegistro">                  
                                                                 </div>
                                                                 <div class="col-3">
                                                                     <label for="numeroIdentificacion" class="form-label">Documento del Cliente</label>
@@ -94,7 +96,7 @@ export class CustomerLista extends HTMLElement{
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -140,6 +142,7 @@ export class CustomerLista extends HTMLElement{
         let listaHTML = /* html */ `
         <tr>
             <td>${clientes.id}</td>
+            <td>${clientes.fechaRegistro}</td>
             <td>${clientes.numeroIdentificacion}</td>
             <td>${clientes.nombres}</td>
             <td>${clientes.apellidos}</td>
@@ -147,10 +150,10 @@ export class CustomerLista extends HTMLElement{
             <td>${clientes.telefono}</td>
             <td>${clientes.CiudadOrigen}</td>
             <td>${clientes.PaisOrigen}</td>
+            <td>${clientes.fechaNacimiento}</td>
             <td>
                     <a class="btn btn-success " data-bs-toggle="modal" data-bs-target="#putCliente" id="putData" data-idcli='${clientes.id}'><i class='bx bx-edit-alt icono' data-idcli='${clientes.id}'></i></a>
                     <!-- Button trigger modal -->
-                    <input type="button" value="detalles" class="btn btn-secondary"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <a id="delete" type="button" data-borrar="DELETE"class="btn btn-danger" data-idclidel='${clientes.id}'><i class='bx bx-message-alt-x icono'></i></a>
             </td>
             </tr>
@@ -177,14 +180,16 @@ export class CustomerLista extends HTMLElement{
     loadDataFrm(data){
         
         const myForm = document.querySelector("#frmData");
-        const {id,numeroIdentificacion,nombres,apellidos,correo,telefono,fechaNacimiento} = data;
+        const {id,xfechaRegistro,numeroIdentificacion,nombres,apellidos,correo,telefono,CiudadOrigen,PaisOrigen,fechaNacimiento} = data;
         const frm = new FormData(myForm);
-        frm.set("id",id);
+        frm.set("fechaRegistro",fechaRegistro);
         frm.set("numeroIdentificacion",numeroIdentificacion);
         frm.set("nombres",nombres);
         frm.set("apellidos",apellidos);
         frm.set("correo",correo);
         frm.set("telefono",telefono);
+        frm.set("CiudadOrigen",CiudadOrigen);
+        frm.set("PaisOrigen",PaisOrigen);
         frm.set("fechaNacimiento",fechaNacimiento);
         // Itera a través de los pares clave-valor de los datos
         for (var pair of frm.entries()) {
@@ -206,13 +211,16 @@ export class CustomerLista extends HTMLElement{
     delete=(id) =>{
         document.querySelectorAll('#delete').forEach((item,id) =>{
             item.addEventListener("click",(e) =>{
+                console.log("aqui")
                 this.idUsr=e.target.dataset.idclidel;
-                this.requestApiGetClienteById(e.target.dataset.idclidel);
+                /* this.requestApiDeleteClienteById(e.target.dataset.idclidel); */
                 id=this.idUsr;
+                deleteData(id)
                 e.stopImmediatePropagation();
                 e.preventDefault();
             })
         })
     };
+
 }
 customElements.define("customer-lista",CustomerLista);

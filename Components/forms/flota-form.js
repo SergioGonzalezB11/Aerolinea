@@ -18,7 +18,7 @@ export class FlotaForm extends HTMLElement{
                                 <div class="row g-3">
                                     <div class="col-3">
                                         <label for="fechaRegistro" class="form-label">numero de aeronave</label>
-                                        <input type="text" class="form-control" id="fechaRegistro" name="fechaRegistro">                  
+                                        <input type="data" class="form-control" id="fechaRegistro" name="fechaRegistro">                  
                                     </div>
                                     <div class="col-3">
                                         <label for="numeroIdentificacion" class="form-label">Documento del Cliente</label>
@@ -58,7 +58,8 @@ export class FlotaForm extends HTMLElement{
                                         <input type="submit" data-accion="POST" class="btn btn-primary" value="Guardar Clientes">
                                     </div>
                                 </div>
-                            </form>                         
+                            </form> 
+                        </div>                            
                     </div>
                 </div>
             </div>
